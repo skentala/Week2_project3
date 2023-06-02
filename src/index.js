@@ -8,3 +8,11 @@ import "./styles.css";
 //  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
 //</div>
 //`;
+const submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", () => submitUser());
+
+function submitUser(){
+  const user = document.getElementById("input-username")
+  username = user.nodeValue;
+  console.log(username);
+}

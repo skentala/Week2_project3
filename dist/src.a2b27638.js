@@ -176,6 +176,23 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.css");
+//document.getElementById("app").innerHTML = `
+//<h1>Hello Vanilla!</h1>
+//<div>
+//  We use the same configuration as Parcel to bundle this sandbox, you can find more
+//  info about Parcel 
+//  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+//</div>
+//`;
+var submitButton = document.getElementById("submit-button");
+submitButton.addEventListener("click", function () {
+  return submitUser();
+});
+function submitUser() {
+  var user = document.getElementById("input-username");
+  username = user.nodeValue;
+  console.log(username);
+}
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
