@@ -184,15 +184,16 @@ require("./styles.css");
 //  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
 //</div>
 //`;
-var submitButton = document.getElementById("submit-button");
+var submitButton = document.getElementById("submit-data");
+//submitButton.addEventListener("click", () => submitUser());
 submitButton.addEventListener("click", function () {
-  return submitUser();
-});
-function submitUser() {
-  var user = document.getElementById("input-username");
-  username = user.nodeValue;
+  var newListItem = document.createElement("tr");
+  var username = document.getElementById("input-username").value;
+  var email = document.getElementById("input-email").value;
+  var address = document.getElementById("input-address").value;
+  var admin = document.getElementById("input-admin").value;
   console.log(username);
-}
+});
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
