@@ -11,10 +11,10 @@ import "./styles.css";
 const submitButton = document.getElementById("submit-data");
 //submitButton.addEventListener("click", () => submitUser());
 submitButton.addEventListener("click", function (){
-  let newListItem = document.createElement("tr");
-  const username = document.getElementById("input-username").value;
-  const email = document.getElementById("input-email").value;
-  const address = document.getElementById("input-address").value;
-  const admin = document.getElementById("input-admin").value;
-  console.log(username);
+  const tableBody = document.getElementById("table-body");
+  const newRow = tableBody.insertRow(-1);
+  newRow.insertCell(0).innerHTML = document.getElementById("input-username").value;
+  newRow.insertCell(1).innerHTML = document.getElementById("input-email").value;
+  newRow.insertCell(2).innerHTML = document.getElementById("input-address").value;
+  newRow.insertCell(3).innerHTML = document.getElementById("input-admin").checked ? "X" : "-";
 })
