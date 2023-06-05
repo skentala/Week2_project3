@@ -192,21 +192,37 @@ submitButton.addEventListener("click", function () {
   //  newRow.insertCell(1).innerHTML = document.getElementById("input-email").value;
   //  newRow.insertCell(2).innerHTML = document.getElementById("input-address").value;
   //  newRow.insertCell(3).innerHTML = document.getElementById("input-admin").checked ? "X" : "-";
-
-  var newRow = document.createElement("tr");
-  var newUsername = document.createElement("td");
-  var newEmail = document.createElement("td");
-  var newAddress = document.createElement("td");
-  var newAdmin = document.createElement("td");
-  newUsername.innerHTML = document.getElementById("input-username").value;
-  newEmail.innerHTML = document.getElementById("input-email").value;
-  newAddress.innerHTML = document.getElementById("input-address").value;
-  newAdmin.innerHTML = document.getElementById("input-admin").checked ? "X" : "-";
-  newRow.appendChild(newUsername);
-  newRow.appendChild(newEmail);
-  newRow.appendChild(newAddress);
-  newRow.appendChild(newAdmin);
-  tableBody.appendChild(newRow);
+  var username = document.getElementById("input-username").value;
+  var email = document.getElementById("input-email").value;
+  var address = document.getElementById("input-address").value;
+  var admin = document.getElementById("input-admin").checked ? "X" : "-";
+  var user = tableBody.firstElementChild;
+  while (user != null) {
+    if (user.childNodes[0].innerText == username) {
+      user.childNodes[1].innerText = email;
+      user.childNodes[2].innerText = address;
+      user.childNodes[3].innerText = admin;
+      break;
+    } else {
+      user = user.nextElementSibling;
+    }
+  }
+  if (user == null) {
+    var newRow = document.createElement("tr");
+    var newUsername = document.createElement("td");
+    var newEmail = document.createElement("td");
+    var newAddress = document.createElement("td");
+    var newAdmin = document.createElement("td");
+    newUsername.innerHTML = username;
+    newEmail.innerHTML = email;
+    newAddress.innerHTML = address;
+    newAdmin.innerHTML = admin;
+    newRow.appendChild(newUsername);
+    newRow.appendChild(newEmail);
+    newRow.appendChild(newAddress);
+    newRow.appendChild(newAdmin);
+    tableBody.appendChild(newRow);
+  }
 });
 var emptyButton = document.getElementById("empty-table");
 emptyButton.addEventListener("click", function () {
