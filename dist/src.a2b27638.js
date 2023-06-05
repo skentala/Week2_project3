@@ -185,15 +185,39 @@ require("./styles.css");
 //</div>
 //`;
 var submitButton = document.getElementById("submit-data");
-//submitButton.addEventListener("click", () => submitUser());
 submitButton.addEventListener("click", function () {
   var tableBody = document.getElementById("table-body");
-  var newRow = tableBody.insertRow(-1);
-  newRow.insertCell(0).innerHTML = document.getElementById("input-username").value;
-  newRow.insertCell(1).innerHTML = document.getElementById("input-email").value;
-  newRow.insertCell(2).innerHTML = document.getElementById("input-address").value;
-  newRow.insertCell(3).innerHTML = document.getElementById("input-admin").checked ? "X" : "-";
+  //  const newRow = tableBody.insertRow(-1);
+  //  newRow.insertCell(0).innerHTML = document.getElementById("input-username").value;
+  //  newRow.insertCell(1).innerHTML = document.getElementById("input-email").value;
+  //  newRow.insertCell(2).innerHTML = document.getElementById("input-address").value;
+  //  newRow.insertCell(3).innerHTML = document.getElementById("input-admin").checked ? "X" : "-";
+
+  var newRow = document.createElement("tr");
+  var newUsername = document.createElement("td");
+  var newEmail = document.createElement("td");
+  var newAddress = document.createElement("td");
+  var newAdmin = document.createElement("td");
+  newUsername.innerHTML = document.getElementById("input-username").value;
+  newEmail.innerHTML = document.getElementById("input-email").value;
+  newAddress.innerHTML = document.getElementById("input-address").value;
+  newAdmin.innerHTML = document.getElementById("input-admin").checked ? "X" : "-";
+  newRow.appendChild(newUsername);
+  newRow.appendChild(newEmail);
+  newRow.appendChild(newAddress);
+  newRow.appendChild(newAdmin);
+  tableBody.appendChild(newRow);
 });
+var emptyButton = document.getElementById("empty-table");
+emptyButton.addEventListener("click", function () {
+  return emptyTable();
+});
+function emptyTable() {
+  var tableBody = document.getElementById("table-body");
+  while (tableBody.hasChildNodes()) {
+    tableBody.removeChild(tableBody.firstChild);
+  }
+}
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
