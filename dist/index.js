@@ -168,108 +168,7 @@ function reloadCSS() {
   }, 50);
 }
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
-"use strict";
-
-require("./styles.css");
-//document.getElementById("app").innerHTML = `
-//<h1>Hello Vanilla!</h1>
-//<div>
-//  We use the same configuration as Parcel to bundle this sandbox, you can find more
-//  info about Parcel 
-//  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-//</div>
-//`;
-var submitButton = document.getElementById("submit-data");
-submitButton.addEventListener("click", function () {
-  var tableBody = document.getElementById("table-body");
-  //  const newRow = tableBody.insertRow(-1);
-  //  newRow.insertCell(0).innerHTML = document.getElementById("input-username").value;
-  //  newRow.insertCell(1).innerHTML = document.getElementById("input-email").value;
-  //  newRow.insertCell(2).innerHTML = document.getElementById("input-address").value;
-  //  newRow.insertCell(3).innerHTML = document.getElementById("input-admin").checked ? "X" : "-";
-  var username = document.getElementById("input-username").value;
-  var email = document.getElementById("input-email").value;
-  var address = document.getElementById("input-address").value;
-  var admin = document.getElementById("input-admin").checked ? "X" : "-";
-  var imageId = document.getElementById("input-image");
-  var image = null;
-  if (imageId.files.length > 0) {
-    image = imageId.files[0];
-    console.log(image);
-  }
-  var user = tableBody.firstElementChild;
-  while (user != null) {
-    if (user.childNodes[0].innerText == username) {
-      user.childNodes[1].innerText = email;
-      user.childNodes[2].innerText = address;
-      user.childNodes[3].innerText = admin;
-      if (image != null) {
-        user.childNodes[4].childNodes[0].file = image;
-        user.childNodes[4].childNodes[0].src = URL.createObjectURL(image);
-        user.childNodes[4].childNodes[0].height = 64;
-        user.childNodes[4].childNodes[0].onload = function () {
-          URL.revokeObjectURL(user.childNodes[4].childNodes[0].src);
-        };
-      } else {
-        user.childNodes[4].childNodes[0].file = null;
-        user.childNodes[4].childNodes[0].src = "";
-        user.childNodes[4].childNodes[0].height = 0;
-      }
-      break;
-    } else {
-      user = user.nextElementSibling;
-    }
-  }
-  if (user == null) {
-    var newRow = document.createElement("tr");
-    var newUsername = document.createElement("td");
-    var newEmail = document.createElement("td");
-    var newAddress = document.createElement("td");
-    var newAdmin = document.createElement("td");
-    var newImage = document.createElement("td");
-    var newImageContent = document.createElement("img");
-    newUsername.innerHTML = username;
-    newEmail.innerHTML = email;
-    newAddress.innerHTML = address;
-    newAdmin.innerHTML = admin;
-    if (image != null) {
-      newImageContent.file = image;
-      newImageContent.src = URL.createObjectURL(image);
-      newImageContent.height = 64;
-      console.log(newImageContent);
-      newImageContent.onload = function () {
-        URL.revokeObjectURL(newImageContent.src);
-      };
-    } else {
-      newImageContent.file = null;
-      newImageContent.src = "";
-      newImageContent.height = 0;
-    }
-    newRow.appendChild(newUsername);
-    newRow.appendChild(newEmail);
-    newRow.appendChild(newAddress);
-    newRow.appendChild(newAdmin);
-    newImage.appendChild(newImageContent);
-    newRow.appendChild(newImage);
-    tableBody.appendChild(newRow);
-  }
-});
-var emptyButton = document.getElementById("empty-table");
-emptyButton.addEventListener("click", function () {
-  return emptyTable();
-});
-function emptyTable() {
-  var tableBody = document.getElementById("table-body");
-  while (tableBody.hasChildNodes()) {
-    tableBody.removeChild(tableBody.firstChild);
-  }
-}
-},{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -438,5 +337,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
-//# sourceMappingURL=/src.a2b27638.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map
