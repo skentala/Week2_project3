@@ -200,8 +200,9 @@ submitButton.addEventListener("click", function () {
   var image = null;
   if (imageId.files.length > 0) {
     image = imageId.files[0];
-    console.log(image);
+    //   console.log(image)
   }
+
   var user = tableBody.firstElementChild;
   while (user != null) {
     if (user.childNodes[0].innerText == username) {
@@ -241,7 +242,7 @@ submitButton.addEventListener("click", function () {
       newImageContent.file = image;
       newImageContent.src = URL.createObjectURL(image);
       newImageContent.height = 64;
-      console.log(newImageContent);
+      //      console.log(newImageContent);
       newImageContent.onload = function () {
         URL.revokeObjectURL(newImageContent.src);
       };
