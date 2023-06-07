@@ -24,7 +24,6 @@ submitButton.addEventListener("click", function (){
   let image = null;
   if (imageId.files.length > 0) {
     image = imageId.files[0];
-//   console.log(image)
   }
   let user = tableBody.firstElementChild;
   while(user != null){
@@ -32,19 +31,19 @@ submitButton.addEventListener("click", function (){
       user.childNodes[1].innerText = email;
       user.childNodes[2].innerText = address;
       user.childNodes[3].innerText = admin;
-      if (image != null){
-        user.childNodes[4].childNodes[0].file = image;
-        user.childNodes[4].childNodes[0].src = URL.createObjectURL(image);
-        user.childNodes[4].childNodes[0].height = 64;
-        user.childNodes[4].childNodes[0].onload = () => {
-          URL.revokeObjectURL(user.childNodes[4].childNodes[0].src);
-        }
-      }
-      else {
-        user.childNodes[4].childNodes[0].file = null;
-        user.childNodes[4].childNodes[0].src = ""
-        user.childNodes[4].childNodes[0].height = 0;
-      }
+//      if (image != null){
+//        user.childNodes[4].childNodes[0].file = image;
+//        user.childNodes[4].childNodes[0].src = URL.createObjectURL(image);
+//        user.childNodes[4].childNodes[0].height = 64;
+//        user.childNodes[4].childNodes[0].onload = () => {
+//          URL.revokeObjectURL(user.childNodes[4].childNodes[0].src);
+//        }
+//      }
+//      else {
+//        user.childNodes[4].childNodes[0].file = null;
+//        user.childNodes[4].childNodes[0].src = ""
+//        user.childNodes[4].childNodes[0].height = 0;
+//      }
       break;
     }
     else {
@@ -72,16 +71,18 @@ submitButton.addEventListener("click", function (){
         URL.revokeObjectURL(newImageContent.src);
       }
     }
-    else {
-      newImageContent.file = null;
-      newImageContent.src = ""
-      newImageContent.height = 0;
-    }
+//    else {
+//      newImageContent.file = null;
+//      newImageContent.src = ""
+//      newImageContent.height = 0;
+//    }
     newRow.appendChild(newUsername);
     newRow.appendChild(newEmail);
     newRow.appendChild(newAddress);
     newRow.appendChild(newAdmin);
-    newImage.appendChild(newImageContent);
+    if (image != null){
+      newImage.appendChild(newImageContent);
+    }
     newRow.appendChild(newImage);
     tableBody.appendChild(newRow);
   }
